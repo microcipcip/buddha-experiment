@@ -1,0 +1,18 @@
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+dl {
+    margin-bottom: $base-spacing / 2;
+
+    dt {
+        margin-top: $base-spacing / 2;
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0;
+    }
+}

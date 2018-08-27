@@ -1,0 +1,17 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    overflow-y: scroll;
+}
+body {
+    min-width: $device-width-min;
+    background: image-url('general/city.jpg') no-repeat center center;
+    background-size: cover;
+}
+html,
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}

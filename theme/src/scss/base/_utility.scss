@@ -1,0 +1,55 @@
+// actions
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.-hide { display: none !important; }
+.-visible { display: block !important; }
+.-invisible { visibility: hidden !important; }
+
+// debugging mode
+@include mqd(".debugger", "bottom");
+
+// hide classes
+@each $bp in $breakpoints {
+    $bpName: nth($bp, 1);
+    $bpValue: nth($bp, 2);
+    $bpValNext: 0;
+    $i: index($breakpoints, $bp);
+
+    @if ($i < $bpLength) {
+        $bpValNext: nth(nth($breakpoints, $i+1), 2);
+        .-hide-#{$bpName} {
+            @include mq($bpValue, $bpValNext) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+// visible classes
+[class*="-visible-"] {
+    display: none !important;
+}
+@each $bp in $breakpoints {
+    $bpName: nth($bp, 1);
+    $bpValue: nth($bp, 2);
+    $bpValNext: 0;
+    $i: index($breakpoints, $bp);
+    @if ($i < $bpLength) {
+        $bpValNext: nth(nth($breakpoints, $i+1), 2);
+        .-visible-#{$bpName} {
+            @include mq($bpValue, $bpValNext) {
+                display: block !important;
+            }
+        }
+    } @else {
+        .-visible-#{$bpName} {
+            @include mq($bpValue) {
+                display: block !important;
+            }
+        }
+    }
+}

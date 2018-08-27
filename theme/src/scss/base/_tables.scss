@@ -1,0 +1,22 @@
+table {
+    table-layout: fixed;
+    width: 100%;
+    margin: ($base-spacing / 2) 0;
+    border-collapse: collapse;
+    @include font-feature-settings("kern", "liga", "tnum");
+}
+th {
+    padding: ($base-spacing / 2) 0;
+    border-bottom: 1px solid darken($base-border-color, 15);
+    font-weight: bold;
+    text-align: left;
+}
+td {
+    padding: ($base-spacing / 2) 0;
+    border-bottom: $base-border;
+}
+tr,
+td,
+th {
+    vertical-align: middle;
+}
